@@ -5,10 +5,12 @@ const Dashboard = () => {
   return (
     <>
       <Header />
-      <div className="p-4">
-        <h1>Dashboard</h1>
+      <div className="p-4 flex justify-center items-center">
+        <h1 className='text bg-red-800'>Dashboard</h1>
       </div>
       <Footer/>
     </>
   )
 }
+
+export default Dashboard
