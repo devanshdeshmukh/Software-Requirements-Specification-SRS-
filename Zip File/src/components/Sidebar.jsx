@@ -1,5 +1,3 @@
-
-
 // // // import React from "react";
 
 // // const Sidebar = ({ activePage, setActivePage, isOpen, setIsOpen }) => {
@@ -515,18 +513,57 @@ import { FiX } from "react-icons/fi";
 
 
 
-// import { FiX } from "react-icons/fi";
-import { Link, useLocation } from "react-router-dom";
 
-const Sidebar = ({ isOpen, setIsOpen, isAdmin }) => {
-  const location = useLocation();
-  const activePage = location.pathname;
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const Sidebar = ({ activePage, setActivePage, isOpen, setIsOpen, isAdmin }) => {
   const navItems = [
     {
       name: "Dashboard",
       icon: (
-        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg
+          className="w-5 h-5"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -535,12 +572,17 @@ const Sidebar = ({ isOpen, setIsOpen, isAdmin }) => {
           />
         </svg>
       ),
-      path: "/dashboard",
+      page: "dashboard",
     },
     {
       name: "Jobs",
       icon: (
-        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg
+          className="w-5 h-5"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -549,12 +591,17 @@ const Sidebar = ({ isOpen, setIsOpen, isAdmin }) => {
           />
         </svg>
       ),
-      path: "/jobs",
+      page: "jobs",
     },
     {
       name: "Candidates",
       icon: (
-        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg
+          className="w-5 h-5"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -563,12 +610,17 @@ const Sidebar = ({ isOpen, setIsOpen, isAdmin }) => {
           />
         </svg>
       ),
-      path: "/candidates",
+      page: "candidates",
     },
     {
       name: "Interviews",
       icon: (
-        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg
+          className="w-5 h-5"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -577,12 +629,17 @@ const Sidebar = ({ isOpen, setIsOpen, isAdmin }) => {
           />
         </svg>
       ),
-      path: "/interviews",
+      page: "interviews",
     },
     {
       name: "Reports",
       icon: (
-        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg
+          className="w-5 h-5"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -591,12 +648,17 @@ const Sidebar = ({ isOpen, setIsOpen, isAdmin }) => {
           />
         </svg>
       ),
-      path: "/reports",
+      page: "reports",
     },
     {
       name: "Users",
       icon: (
-        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg
+          className="w-5 h-5"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -605,13 +667,18 @@ const Sidebar = ({ isOpen, setIsOpen, isAdmin }) => {
           />
         </svg>
       ),
-      path: "/users",
+      page: "users",
       isAdmin: true,
     },
     {
       name: "Settings",
       icon: (
-        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg
+          className="w-5 h-5"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -626,23 +693,26 @@ const Sidebar = ({ isOpen, setIsOpen, isAdmin }) => {
           />
         </svg>
       ),
-      path: "/settings",
+      page: "settings",
     },
   ];
 
   return (
     <>
+      {/* Overlay */}
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"
+          className=" fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"
           onClick={() => setIsOpen(false)}
         ></div>
       )}
 
+      {/* Sidebar */}
       <div
-        className={`fixed top-0 right-50 z-50 h-screen w-64 bg-white border-r shadow-lg transform transition-transform duration-300 ease-in-out 
-        ${isOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0 md:relative md:z-0`}
+        className={`  fixed top-0  right-50 z-50 h-screen w-64 bg-white border-r shadow-lg transform transition-transform duration-300 ease-in-out 
+          ${isOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0 md:relative md:z-0`}
       >
+        {/* Close Button for Mobile */}
         <div className="md:hidden flex justify-end p-4">
           <button onClick={() => setIsOpen(false)}>
             <FiX className="text-xl text-gray-700" />
@@ -655,21 +725,22 @@ const Sidebar = ({ isOpen, setIsOpen, isAdmin }) => {
             <ul className="space-y-2">
               {navItems.map((item) => {
                 if (item.isAdmin && !isAdmin) return null;
-
                 return (
-                  <li key={item.path}>
-                    <Link
-                      to={item.path}
-                      onClick={() => setIsOpen(false)}
+                  <li key={item.page}>
+                    <button
+                      onClick={() => {
+                        setActivePage(item.page);
+                        setIsOpen(false);
+                      }}
                       className={`flex items-center w-full px-4 py-2 rounded-md text-sm font-medium transition-colors ${
-                        activePage === item.path
+                        activePage === item.page
                           ? "bg-indigo-100 text-indigo-700"
                           : "text-gray-700 hover:bg-indigo-50 hover:text-indigo-600"
                       }`}
                     >
                       <span className="mr-3">{item.icon}</span>
                       {item.name}
-                    </Link>
+                    </button>
                   </li>
                 );
               })}
