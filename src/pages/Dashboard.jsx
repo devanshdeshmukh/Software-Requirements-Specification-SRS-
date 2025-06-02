@@ -3,8 +3,8 @@ import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import Footer from "../components/Footer";
 import DashboardHome from "./dashboard/DashboardHome";
-import Jobs from "./dashboard/Jobs";
-import Candidates from "./dashboard/Candidates";
+import Jobs from "./job/Jobs";
+import Candidates from "./candidate/Candidates";
 
 const Dashboard = () => {
   const [activePage, setActivePage] = useState("dashboard");
@@ -43,4 +43,3 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
-  
