@@ -76,12 +76,12 @@ function App() {
         <main className="flex-1 px-4 py-6 bg-gray-50 overflow-y-auto">
           <Routes>
             <Route path="/dashboard" element={<DashboardHome />} />
-            <Route path="/dashboard/jobs" element={<Jobs />} />
-            <Route path="/dashboard/candidates" element={<Candidates />} />
-            <Route path="/dashboard/interviews" element={<Interviews />} />
-            <Route path="/dashboard/reports" element={<Reports />} />
-            <Route path="/dashboard/users" element={<Users />} />
-            <Route path="/dashboard/settings" element={<Settings />} />
+            <Route exact path="/jobs" element={<Jobs />} />
+            <Route path="/candidates" element={<Candidates />} />
+            <Route path="/interviews" element={<Interviews />} />
+            <Route path="/reports" element={<Reports />} />
+            <Route path="/users" element={<Users />} />
+            <Route path="/settings" element={<Settings />} />
           </Routes>
         </main>
       </div>
