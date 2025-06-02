@@ -57,6 +57,7 @@ import Sidebar from "./components/Sidebar";
 import { Routes, Route } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
 import JobDetails from "./pages/JobDetails";
+import DashboardHome from "./pages/dashboard/DashbordHome";
 // // import Candidates from "./pages/dashboard/Candidates";
 // // import Interviews from "./pages/dashboard/Interviews";
 // // import Reports from "./pages/dashboard/Reports";
@@ -74,8 +75,9 @@ function App() {
         <Sidebar />
         <main>
           <Routes>
-            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/dashboard" element={<DashboardHome />} />
             <Route path="/dashboard/jobs" element={<JobDetails />} />
+            {/* <Route path="/dashboardHome" element={<DashboardHome />} /> */}
             {/* <Route path="/dashboard/candidates" element={<Candidates />} /> */}
             {/* <Route path="/dashboard/interviews" element={<Interviews />} /> */}
             {/* <Route path="/dashboard/reports" element={<Reports />} /> */}

@@ -663,12 +663,12 @@ const Sidebar = ({ isOpen, setIsOpen, isAdmin }) => {
       )}
 
       {/* Sidebar */}
-      <div
-        className={`fixed top-0 left-0 z-50 h-screen w-64 bg-white border-r shadow-lg transform transition-transform duration-300 ease-in-out
-          ${isOpen ? "translate-x-0" : "-translate-x-full"}
-          md:translate-x-0 md:relative md:z-0
-        `}
-      >
+     <div
+  className={`fixed top-0 left-0 z-50 h-screen w-64 bg-white border-r shadow-lg transform transition-transform duration-300 ease-in-out
+    ${isOpen ? "translate-x-0" : "-translate-x-full"}
+    md:translate-x-0 md:left-0 md:relative md:z-auto
+  `}
+>
         {/* Close button for mobile */}
         <div className="md:hidden flex justify-end p-4">
           <button
