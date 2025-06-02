@@ -94,6 +94,17 @@ import Users from "./pages/dashboard/Users";
 import Settings from "./pages/dashboard/Settings";
 
 function App() {
+// import { Routes, Route } from "react-router-dom";
+// import Dashboard from "./pages/Dashboard";
+// import JobDetails from "./pages/JobDetails";
+// // import Candidates from "./pages/dashboard/Candidates";
+// // import Interviews from "./pages/dashboard/Interviews";
+// // import Reports from "./pages/dashboard/Reports";
+// // import Users from "./pages/dashboard/Users";
+// // import Settings from "./pages/dashboard/Settings";
+
+function App() {
+  // const [isOpen, setIsOpen] = useState(false);
   const [activePage, setActivePage] = useState("dashboard");
   const [isOpen, setIsOpen] = useState(false);
 
@@ -130,11 +141,22 @@ function App() {
         />
         <main className="flex-1 px-4 py-6 bg-gray-50 overflow-y-auto">
           {renderPage()}
+        <Sidebar />
+       
+          <Routes>
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/dashboard/jobs" element={<JobDetails />} />
+            {/* <Route path="/dashboard/candidates" element={<Candidates />} /> */}
+            {/* <Route path="/dashboard/interviews" element={<Interviews />} /> */}
+            {/* <Route path="/dashboard/reports" element={<Reports />} /> */}
+            {/* <Route path="/dashboard/users" element={<Users />} /> */}
+            {/* <Route path="/dashboard/settings" element={<Settings />} /> */}
+          </Routes>
         </main>
       </div>
       <Footer />
     </div>
   );
 }
-
+}
 export default App;
