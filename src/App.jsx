@@ -54,45 +54,36 @@ import "./App.css";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
-// import Navbar from "./components/Navbar"; // optional
+import { Routes, Route } from "react-router-dom";
+import Dashboard from "./pages/Dashboard";
+import JobDetails from "./pages/JobDetails";
+// // import Candidates from "./pages/dashboard/Candidates";
+// // import Interviews from "./pages/dashboard/Interviews";
+// // import Reports from "./pages/dashboard/Reports";
+// // import Users from "./pages/dashboard/Users";
+// // import Settings from "./pages/dashboard/Settings";
 
 function App() {
-  const [isOpen, setIsOpen] = useState(false);
+  // const [isOpen, setIsOpen] = useState(false);
   const [activePage, setActivePage] = useState("dashboard");
 
   return (
     <div className="min-h-screen flex flex-col">
-      {/* Fixed Header */}
       <Header />
-
-      {/* Optional Navbar */}
-      {/* <Navbar /> */}
-
-      {/* Mobile Hamburger button */}
-      <div className="md:hidden fixed top-4 left-4 z-30">
-        <button
-          onClick={() => setIsOpen(true)}
-          className="p-2 rounded-md bg-white shadow"
-        >
-          ☰
-        </button>
+      <div className="flex flex-1">
+        <Sidebar />
+        <main>
+          <Routes>
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/dashboard/jobs" element={<JobDetails />} />
+            {/* <Route path="/dashboard/candidates" element={<Candidates />} /> */}
+            {/* <Route path="/dashboard/interviews" element={<Interviews />} /> */}
+            {/* <Route path="/dashboard/reports" element={<Reports />} /> */}
+            {/* <Route path="/dashboard/users" element={<Users />} /> */}
+            {/* <Route path="/dashboard/settings" element={<Settings />} /> */}
+          </Routes>
+        </main>
       </div>
-
-      {/* Sidebar (passing all required props) */}
-      <Sidebar
-        activePage={activePage}
-        setActivePage={setActivePage}
-        isOpen={isOpen}
-        setIsOpen={setIsOpen}
-      />
-
-      {/* Main Content Area */}
-      <main className="flex-1 px-4 py-6 md:ml-[270px] mt-16">
-        <h1 className="text-2xl font-bold capitalize">{activePage} Page</h1>
-        <p>This is the {activePage} content section.</p>
-      </main>
-
-      {/* Fixed Footer */}
       <Footer />
     </div>
   );
